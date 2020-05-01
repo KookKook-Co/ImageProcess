@@ -6,6 +6,8 @@ import os
 IMG_PATH = os.getcwd() + os.sep + 'img'
 IMG_SIZE = (2880, 1618) # 16 : 9
 
+
+
 def loadImgs(nameList, size=IMG_SIZE, color=False):
     # params: nameList, size=(2880, 1618), color=False
     # return: list of imgs
@@ -39,7 +41,7 @@ def bitwiseAnd(imgs):
 
 def countDeadChicken(imgs):
     # params: List of images
-    # return: list of {center, area}
+    # return: dead amount, list of {center, area}
 
     # bitwise_and imgs
     img = bitwiseAnd(imgs)
@@ -84,9 +86,9 @@ def countDeadChicken(imgs):
             'center': (cx, cy)
         }
         cnts.append(t)
-    return cnts
+    return len(cnts), cnts
 
 def getThresholdArea():
     # return threshold area
     # minimum area accepted computed from chicken age (date - filled_date)
-    return 7000
+    return 7500
